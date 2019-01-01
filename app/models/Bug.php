@@ -35,7 +35,7 @@ class Bug extends Model{
 		$db = new DbConnect();
 		$conn = $db->connect();
 
-		$sql = "SELECT DISTINCT bs.id, bs.status_name FROM bugs b LEFT JOIN bug_status bs on bs.id = b.status_id WHERE b.project_id = " . $project_id . " AND " . "b.assigned_to = " . $user_id;
+		$sql = "SELECT DISTINCT bs.id, bs.status_name FROM bugs b LEFT JOIN bug_status bs on bs.id = b.status_id WHERE b.project_id = " . $project_id . " AND " . "b.assigned_to = " . $user_id . " ORDER BY bs.id";
 		
 		$result = mysqli_query($conn, $sql);
 		$data = mysqli_fetch_all($result,MYSQLI_ASSOC);

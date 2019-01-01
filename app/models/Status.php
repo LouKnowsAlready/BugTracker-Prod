@@ -32,7 +32,7 @@ class Status extends Model{
 		$db = new DbConnect();
 		$conn = $db->connect();
 
-		$sql = "SELECT id FROM bug_status WHERE project_id = {$project_id} ORDER BY id desc LIMIT 1";
+		$sql = "SELECT id, status_name FROM bug_status WHERE project_id = {$project_id} ORDER BY id desc LIMIT 1";
 		$result = mysqli_query($conn, $sql);
 		$data = mysqli_fetch_assoc($result);
 		mysqli_free_result($result);
